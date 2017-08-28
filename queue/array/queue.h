@@ -13,6 +13,7 @@ ElementType Front(Queue q);
 void Dequeue(Queue q);
 ElementType FrontAndDequeue(Queue q);
 
+#define MinQueueSize (5)
 struct QueueRecord{
 	int capacity;
 	int front;
