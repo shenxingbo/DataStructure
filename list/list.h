@@ -1,3 +1,4 @@
+#ifndef _list_h 
 struct Node;
 typedef int ElementType;
 typedef struct Node *PtrToNode;
@@ -23,6 +24,7 @@ ElementType Retrieve(Position p); // 取回某个位置上的值
 List CreateHeader(); 
 List InitList(List L, ElementType value);
 void PrintList(List L);
+#endif
  
 struct Node {
 	ElementType value;
