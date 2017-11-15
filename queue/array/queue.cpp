@@ -63,7 +63,7 @@ static int Succ(int value, Queue q) {  //这个是移动指针，形成循环队列
 
 
 void Enqueue(ElementType x, Queue q) { //这个不需要进行空栈的检查 
-	
+	cout <<"我进来了"  << endl; 
 	if (IsFull(q)) {
 		cout << "队列空间已满";
 		exit(-1);
@@ -73,6 +73,7 @@ void Enqueue(ElementType x, Queue q) { //这个不需要进行空栈的检查
 	q->array[q->rear] = x;
 	q->size++;
 	
+	cout <<  "栈大小" << q->size << endl;
 }
 
 
@@ -85,15 +86,12 @@ ElementType Front(Queue q) {
 } 
 
 void Dequeue(Queue q) {
-	
 	if (IsEmpty(q)){
 		cout << "队列为空";
 		exit(-1);
-	}
-	
-	Succ(q->front, q);
-	q->size -- ;
-	
+	} 
+	q->front = Succ(q->front, q);
+	q->size --;
 }
  
 ElementType FrontAndDequeue(Queue q) {
@@ -104,7 +102,7 @@ ElementType FrontAndDequeue(Queue q) {
 		exit(-1);
 	}
 	temp = q->array[q->front];
-	Succ(q->front, q);
+	q->front = Succ(q->front, q);
 	q->size -- ;
 	return temp;
 }
